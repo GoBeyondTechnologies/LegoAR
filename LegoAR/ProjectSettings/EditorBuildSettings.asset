@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainWindow.unity
+    guid: 2509962a6f7a97b46a74a78432add4af
+  - enabled: 1
+    path: Assets/Scenes/PickModel.unity
+    guid: 52421af4713618242a46ca3225265e73
+  - enabled: 1
+    path: Assets/Scenes/Game.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Vuforia.unity
+    guid: e2aae92d19d9f874b8003b01f63ef864
+  - enabled: 1
+    path: Assets/Scenes/End.unity
+    guid: 6a45fc3a3f451cb4e85fceea4fcfb829
+  m_configObjects: {}
