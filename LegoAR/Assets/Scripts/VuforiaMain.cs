@@ -16,12 +16,6 @@ public class VuforiaMain : MonoBehaviour
     public GameObject[] arObjectsToPlace;//this has all the steps
     public GameObject LegoHouse; //we use this object to influence all the bricks together
 
-
-
-    //all the levels in which each brick is used. there is a shift because of an index error in the steps
-    int[] Brick4Array = new int[] { 34, 35, 46, 47, 58, 59, 72, 82};
-    int[] BrickRoofArray = new int[] { 86, 87, 88, 89, 92, 93, 94, 95, 98, 99, 100, 101, 103, 104, 105, 106, 108, 109, 110, 111, 112, 113, 114, 115, 116};//added 116 so last image will not change
-    public Sprite[] BrickImages;
     public Image imageofbrick;
 
     void Start()
@@ -39,6 +33,8 @@ public class VuforiaMain : MonoBehaviour
 
 
     }
+
+    //changes the text that shows the level
     private void indicatestep()
     {
         if (counter <= arObjectsToPlace.Length)//if it's bigger then we dont want it to update
@@ -83,9 +79,10 @@ public class VuforiaMain : MonoBehaviour
         SceneManager.LoadScene("End");
     }
 
+
+    //this will activate only the current step
     private void activatesteps()
     {
-        //this will activate only the current step
         for (int i = 0; i < arObjectsToPlace.Length; i++)
         {
             arObjectsToPlace[i].SetActive(false);
@@ -98,27 +95,12 @@ public class VuforiaMain : MonoBehaviour
     //changes the brick image depending on the level
     private void changeimages()
     {
-        if (checkArray(counter-1, Brick4Array))
+
+        if (arObjectsToPlace[counter-1].GetComponent<ShowImage>().img != null)
         {
-            imageofbrick.sprite = BrickImages[0];
-        }else if (checkArray(counter-1, BrickRoofArray))
-        {
-            imageofbrick.sprite = BrickImages[2];
+            imageofbrick.sprite = arObjectsToPlace[counter - 1].GetComponent<ShowImage>().img;
         }
-        else
-            imageofbrick.sprite = BrickImages[1];
+        
     }
 
-    //checks if our counter is in a specific level array
-    private bool checkArray(int num, int[] array)
-    {
-        bool flag = false;
-        for (int i = 0; i < array.Length; i++)
-        {
-            if (num == array[i])
-                flag = true;
-        }
-
-        return flag;
-    }
 }
